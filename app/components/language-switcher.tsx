@@ -1,13 +1,12 @@
 'use client';
 
+import { languages, useTranslation } from '@/lib';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from '../../../lib/i18n/client';
-import { languages } from '../../../lib/i18n/settings';
 
 export const LanguageSwitcher = ({ lng }: { lng: string }) => {
   const pathname = usePathname();
-  const { t } = useTranslation(lng, 'common');
+  const { t } = useTranslation(lng);
 
   const pathnameWithoutLng = pathname.replace(`/${lng}`, '');
 

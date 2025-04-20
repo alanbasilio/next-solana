@@ -8,7 +8,7 @@ import {
   initReactI18next,
   useTranslation as useTranslationOrg,
 } from 'react-i18next';
-import { getOptions, languages } from './settings';
+import { defaultNS, getOptions, languages } from './settings';
 
 const runsOnServerSide = typeof window === 'undefined';
 
@@ -19,7 +19,7 @@ i18next
   .use(
     resourcesToBackend(
       (language: string, namespace: string) =>
-        import(`../../public/locales/${language}/${namespace}.json`)
+        import(`@/public/locales/${language}/${namespace}.json`)
     )
   )
   .init({
@@ -33,7 +33,7 @@ i18next
 
 export function useTranslation(
   lng: string,
-  ns: string,
+  ns: string = defaultNS,
   options: { keyPrefix?: string } = {}
 ) {
   const ret = useTranslationOrg(ns, options);

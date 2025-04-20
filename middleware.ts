@@ -12,6 +12,11 @@ export const config = {
 const cookieName = 'i18next';
 
 export function middleware(req: NextRequest) {
+  // Don't redirect static files
+  if (req.nextUrl.pathname.match(/\.(svg|png|jpg|jpeg|gif|css|js)$/)) {
+    return NextResponse.next();
+  }
+
   let lng;
   if (req.cookies.has(cookieName))
     lng = acceptLanguage.get(req.cookies.get(cookieName)?.value);
