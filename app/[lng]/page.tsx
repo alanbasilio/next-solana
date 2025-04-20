@@ -1,16 +1,12 @@
 'use client';
+import Image from 'next/image';
+
 import { Button, LanguageSwitcher } from '@/app/components';
 import { useTranslation } from '@/lib';
-import Image from 'next/image';
-import { use } from 'react';
+import { useParams } from 'next/navigation';
 
-export default function Home({
-  params,
-}: Readonly<{
-  params: Promise<{ lng: string }>;
-}>) {
-  const resolvedParams = use(params);
-  const { lng } = resolvedParams;
+export default function Home() {
+  const { lng } = useParams<{ lng: string }>();
   const { t } = useTranslation(lng, 'common');
 
   return (
@@ -116,7 +112,7 @@ export default function Home({
           </Button>
         </footer>
 
-        <LanguageSwitcher lng={lng} />
+        <LanguageSwitcher />
       </main>
     </div>
   );

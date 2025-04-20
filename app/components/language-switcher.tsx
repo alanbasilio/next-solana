@@ -1,29 +1,31 @@
 'use client';
 
-import { languages, useTranslation } from '@/lib';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Tabs, TabsList, TabsTrigger } from '@/app/components';
+import { cn, languages } from '@/lib';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 
-export const LanguageSwitcher = ({ lng }: { lng: string }) => {
+export const LanguageSwitcher = () => {
+  const { lng } = useParams<{ lng: string }>();
   const pathname = usePathname();
-  const { t } = useTranslation(lng);
+  const router = useRouter();
 
-  const pathnameWithoutLng = pathname.replace(`/${lng}`, '');
+  const onChange = (val: string) => router.push(pathname.replace(lng, val));
 
   return (
-    <div className='mt-4'>
-      <span>{t('change-language')}: </span>
-      <ul className='inline-flex gap-3'>
-        {languages.map((l) => (
-          <li key={l}>
-            {l === lng ? (
-              <span className='font-bold'>{l}</span>
-            ) : (
-              <Link href={`/${l}${pathnameWithoutLng}`}>{l}</Link>
-            )}
-          </li>
+    <Tabs onValueChange={onChange} value={lng}>
+      <TabsList className='w-full'>
+        {languages.map((language) => (
+          <TabsTrigger
+            key={language}
+            value={language}
+            className={cn('flex-1', {
+              'cursor-pointer': language !== lng,
+            })}
+          >
+            {language}
+          </TabsTrigger>
         ))}
-      </ul>
-    </div>
+      </TabsList>
+    </Tabs>
   );
 };
