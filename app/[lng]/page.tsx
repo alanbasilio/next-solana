@@ -1,13 +1,26 @@
 'use client';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
 import { Button, LanguageSwitcher } from '@/app/components';
 import { useTranslation } from '@/lib';
-import { useParams } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
 
 export default function Home() {
   const { lng } = useParams<{ lng: string }>();
   const { t } = useTranslation(lng, 'common');
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () =>
+      fetch('https://api.github.com/repos/TanStack/query').then((res) =>
+        res.json()
+      ),
+  });
+
+  if (isPending) return 'Loading...';
+
+  if (error) return 'An error has occurred: ' + error.message;
 
   return (
     <div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'>
@@ -59,6 +72,12 @@ export default function Home() {
               {t('docs')}
             </a>
           </Button>
+        </div>
+        <div>
+          <p>{data.description}</p>
+          <strong>👀 {data.subscribers_count}</strong>{' '}
+          <strong>✨ {data.stargazers_count}</strong>{' '}
+          <strong>🍴 {data.forks_count}</strong>
         </div>
         <LanguageSwitcher />
       </main>

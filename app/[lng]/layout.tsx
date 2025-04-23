@@ -1,10 +1,10 @@
-import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { use } from 'react';
 
 import '@/app/globals.css';
-import { languages } from '@/lib';
+import { languages, QueryClientProvider } from '@/lib';
+import { dir } from 'i18next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,12 +36,14 @@ export default function RootLayout({
   const { lng } = resolvedParams;
 
   return (
-    <html lang={lng} dir={dir(lng)}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <QueryClientProvider>
+      <html lang={lng} dir={dir(lng)}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </html>
+    </QueryClientProvider>
   );
 }
