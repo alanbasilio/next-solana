@@ -1,11 +1,11 @@
 {
   "welcome": "Welcome to Next.js i18n!",
   "home": "Home",
-  "save": "Save",
+  "save": "Save and see your changes instantly.",
   "cancel": "Cancel",
   "learn": "Learn",
   "examples": "Examples",
   "change-language": "Change language",
-  "edit": "Edit",
+  "edit": "Get started by editing",
   "footer-text": "Go to nextjs.org →"
 }
