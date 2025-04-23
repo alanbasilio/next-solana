@@ -1,7 +1,8 @@
 {
   "welcome": "Welcome to Next.js i18n!",
-  "home": "Home",
   "save": "Save and see your changes instantly.",
+  "deploy": "Deploy now",
+  "docs": "Read our docs",
   "cancel": "Cancel",
   "learn": "Learn",
   "examples": "Examples",

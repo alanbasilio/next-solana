@@ -47,7 +47,7 @@ export default function Home() {
                 width={20}
                 height={20}
               />
-              Deploy now
+              {t('deploy')}
             </a>
           </Button>
           <Button asChild size='lg'>
@@ -56,7 +56,7 @@ export default function Home() {
               target='_blank'
               rel='noopener noreferrer'
             >
-              {t('learn')}
+              {t('docs')}
             </a>
           </Button>
         </div>
