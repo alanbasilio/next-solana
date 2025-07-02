@@ -1,22 +1,16 @@
 'use client';
+import { AppWindow, FileIcon, GlobeIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
 import { Button, LanguageSwitcher } from '@/app/components';
-import { useTranslation } from '@/lib';
-import { useQuery } from '@tanstack/react-query';
+import { useRepoData, useTranslation } from '@/lib';
 
 export default function Home() {
   const { lng } = useParams<{ lng: string }>();
-  const { t } = useTranslation(lng, 'common');
+  const { t } = useTranslation(lng);
 
-  const { isPending, error, data } = useQuery({
-    queryKey: ['repoData'],
-    queryFn: () =>
-      fetch('https://api.github.com/repos/TanStack/query').then((res) =>
-        res.json()
-      ),
-  });
+  const { isPending, error, data } = useRepoData();
 
   if (isPending) return 'Loading...';
 
@@ -88,13 +82,7 @@ export default function Home() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <Image
-              aria-hidden
-              src='/file.svg'
-              alt='File icon'
-              width={16}
-              height={16}
-            />
+            <FileIcon className='w-4 h-4' />
             {t('learn')}
           </a>
         </Button>
@@ -104,13 +92,7 @@ export default function Home() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <Image
-              aria-hidden
-              src='/window.svg'
-              alt='Window icon'
-              width={16}
-              height={16}
-            />
+            <AppWindow className='w-4 h-4' />
             {t('examples')}
           </a>
         </Button>
@@ -120,13 +102,7 @@ export default function Home() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <Image
-              aria-hidden
-              src='/globe.svg'
-              alt='Globe icon'
-              width={16}
-              height={16}
-            />
+            <GlobeIcon className='w-4 h-4' />
             {t('footer-text')}
           </a>
         </Button>
