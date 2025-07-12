@@ -1,9 +1,9 @@
 'use client';
 
 import { useParams, usePathname, useRouter } from 'next/navigation';
+import { cn, languages } from '@/lib';
 
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { cn, languages } from '@/lib';
 
 export const LanguageSwitcher = () => {
   const { lng } = useParams<{ lng: string }>();
@@ -15,7 +15,7 @@ export const LanguageSwitcher = () => {
   return (
     <Tabs onValueChange={onChange} value={lng}>
       <TabsList className='w-full'>
-        {languages.map((language) => (
+        {languages.map(language => (
           <TabsTrigger
             key={language}
             value={language}

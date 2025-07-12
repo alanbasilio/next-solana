@@ -1,5 +1,6 @@
-import acceptLanguage from 'accept-language';
 import { NextRequest, NextResponse } from 'next/server';
+import acceptLanguage from 'accept-language';
+
 import { fallbackLng, languages } from './lib/i18n/settings';
 
 acceptLanguage.languages(languages);
@@ -25,7 +26,7 @@ export function middleware(req: NextRequest) {
 
   // Redirect if lng in path is not supported
   if (
-    !languages.some((loc) => req.nextUrl.pathname.startsWith(`/${loc}`)) &&
+    !languages.some(loc => req.nextUrl.pathname.startsWith(`/${loc}`)) &&
     !req.nextUrl.pathname.startsWith('/_next')
   ) {
     return NextResponse.redirect(
@@ -35,7 +36,7 @@ export function middleware(req: NextRequest) {
 
   if (req.headers.has('referer')) {
     const refererUrl = new URL(req.headers.get('referer') || '');
-    const lngInReferer = languages.find((l) =>
+    const lngInReferer = languages.find(l =>
       refererUrl.pathname.startsWith(`/${l}`)
     );
     const response = NextResponse.next();

@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { use } from 'react';
 
 import '@/app/globals.css';
+
 import { languages, QueryClientProvider } from '@/lib';
 import { dir } from 'i18next';
+
+import { ThemeProvider } from '@/components/theme-provider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -22,28 +24,32 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }));
+  return languages.map(lng => ({ lng }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
-}: Readonly<{
+}: {
   children: React.ReactNode;
   params: Promise<{ lng: string }>;
-}>) {
-  const resolvedParams = use(params);
-  const { lng } = resolvedParams;
+}) {
+  const { lng } = await params;
 
   return (
-    <QueryClientProvider>
-      <html lang={lng} dir={dir(lng)}>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    <html lang={lng} dir={dir(lng)} suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
         >
-          {children}
-        </body>
-      </html>
-    </QueryClientProvider>
+          <QueryClientProvider>{children}</QueryClientProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

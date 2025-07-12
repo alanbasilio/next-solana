@@ -1,39 +1,39 @@
 version: 2
 updates:
   # Enable version updates for npm
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-      timezone: "America/Sao_Paulo"
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/Sao_Paulo'
     labels:
-      - "dependencies"
+      - 'dependencies'
     reviewers:
-      - "alanbasilio"
+      - 'alanbasilio'
     assignees:
-      - "alanbasilio"
+      - 'alanbasilio'
     open-pull-requests-limit: 10
-    
+
     # Group minor and patch updates
     groups:
       minor-and-patch:
         patterns:
-          - "*"
+          - '*'
         update-types:
-          - "minor"
-          - "patch"
-    
+          - 'minor'
+          - 'patch'
+
     # Separate major updates
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
-    
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
+
   # Enable version updates for GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     labels:
-      - "github-actions" 
+      - 'github-actions'

@@ -1,11 +1,13 @@
 'use client';
-import { AppWindow, FileIcon, GlobeIcon } from 'lucide-react';
+
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-
-import { LanguageSwitcher } from '@/components/language-switcher';
-import { Button } from '@/components/ui/button';
 import { useRepoData, useTranslation } from '@/lib';
+import { AppWindow, FileIcon, GlobeIcon } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import { LanguageSwitcher } from '@/components/language-switcher';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 
 export default function Home() {
   const { lng } = useParams<{ lng: string }>();
@@ -20,14 +22,19 @@ export default function Home() {
   return (
     <div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'>
       <main className='flex flex-col gap-[32px] row-start-2 items-center sm:items-start'>
-        <Image
-          className='dark:invert'
-          src='/next.svg'
-          alt='Next.js logo'
-          width={180}
-          height={38}
-          priority
-        />
+        <div className='flex items-center justify-between w-full'>
+          <Image
+            className='dark:invert'
+            src='/next.svg'
+            alt='Next.js logo'
+            width={180}
+            height={38}
+            priority
+          />
+          <div className='flex items-center gap-2'>
+            <ThemeSwitcher />
+          </div>
+        </div>
 
         <h1 className='text-2xl font-bold'>{t('welcome')}</h1>
 
