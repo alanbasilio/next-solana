@@ -1,6 +1,6 @@
 ---
 name: Bug Report or Feature Request
-about: Create a report to help us improve Next Polyglot
+about: Create a report to help us improve Next Solana
 title: ''
 labels: ''
 assignees: ''

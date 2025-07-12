@@ -1,4 +1,4 @@
-# 🌍 Next Polyglot
+# 🌍 Next Solana
 
 A modern, production-ready Next.js starter template with internationalization (i18n) support, built with the latest technologies and best practices.
 
@@ -116,7 +116,7 @@ A modern, production-ready Next.js starter template with internationalization (i
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd next-polyglot
+cd next-solana
 
 # Install dependencies
 yarn install
@@ -130,7 +130,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## 📁 Project Structure
 
 ```
-next-polyglot/
+next-solana/
 ├── app/
 │   ├── [lng]/                 # Language-specific pages
 │   │   ├── layout.tsx         # Layout with theme support
@@ -399,8 +399,8 @@ yarn analyze
 
 ```bash
 # Clone the repository
-git clone https://github.com/alanbasilio/next-polyglot.git
-cd next-polyglot
+git clone https://github.com/alanbasilio/next-solana.git
+cd next-solana
 
 # Install dependencies
 yarn install
