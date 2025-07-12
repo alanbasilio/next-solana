@@ -15,7 +15,7 @@ export const WalletConnect: React.FC<WalletConnectProps> = ({ lng }) => {
   const { t } = useTranslation(lng);
   const {
     connected,
-    connecting,
+    loading,
     publicKey,
     balance,
     connectWallet,
@@ -112,10 +112,10 @@ export const WalletConnect: React.FC<WalletConnectProps> = ({ lng }) => {
 
       <Button
         onClick={connectWallet}
-        disabled={connecting}
+        disabled={loading}
         className='w-full max-w-xs bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-none'
       >
-        {connecting ? (
+        {loading ? (
           <>
             <Loader2 className='w-4 h-4 mr-2 animate-spin' />
             Connecting...

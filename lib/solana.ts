@@ -1,6 +1,6 @@
-import { clusterApiUrl, Connection, PublicKey } from './solana-mock';
+import { clusterApiUrl, Connection, PublicKey } from '@solana/web3.js';
 
-export const SOLANA_NETWORK = 'mainnet-beta';
+export const SOLANA_NETWORK = 'devnet';
 
 // RPC endpoints
 export const RPC_ENDPOINTS = {
