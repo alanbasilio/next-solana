@@ -1,430 +1,206 @@
-# 🌍 Next Solana
+# Solana Trading Platform
 
-A modern, production-ready Next.js starter template with internationalization (i18n) support, built with the latest technologies and best practices.
+A modern, feature-rich trading platform built on the Solana blockchain with Next.js 15, TypeScript, and Tailwind CSS.
 
-## 🚀 Features
+## ✨ Features
 
-### 🌐 **Core Features**
-
-- **Internationalization**: Multi-language support with i18next
-- **Next.js 15**: Latest version with App Router and Turbopack
-- **TypeScript**: Full type safety with strict mode
-- **Tailwind CSS 4**: Modern utility-first CSS framework
-- **Radix UI**: Accessible and customizable UI components
-- **TanStack Query**: Powerful data synchronization
-
-### 🔧 **Developer Experience**
-
-- **Prettier**: Automatic code formatting with import sorting
-- **ESLint**: Custom rules with Prettier integration
-- **Husky**: Git hooks for pre-commit, commit-msg, and pre-push
-- **Lint-staged**: Automatic formatting on commit
-- **Commitlint**: Conventional commits enforcement
-- **Bundle Analyzer**: Performance analysis (`yarn analyze`)
-- **VSCode**: Optimized settings and extensions
-- **TypeScript**: Strict mode and advanced configurations
-
-### 🎨 **UI/UX**
-
-- **Dark/Light Mode**: Seamless theme switching with next-themes
-- **Theme System**: Comprehensive theme provider and switcher
-- **Responsive Design**: Mobile-first approach
-- **Accessible Components**: WCAG compliant with Radix UI
-- **Modern Design**: Clean and professional interface
-
-### 🔒 **Security**
-
-- **Security Headers**: CSP, HSTS, X-Frame-Options, and more
-- **Content Security Policy**: Configured for maximum security
-- **Type-safe Environment Variables**: Zod validation
-- **Input Validation**: Schema-based validation system
-
-### 🔍 **SEO & Performance**
-
-- **Dynamic Metadata**: Optimized meta tags and OpenGraph
-- **Twitter Cards**: Social media optimization
-- **JSON-LD**: Structured data for better search results
-- **Image Optimization**: AVIF/WebP support
-- **Bundle Optimization**: Automatic code splitting and optimization
-
-### 🌐 **Internationalization**
-
-- **i18next**: Complete i18n framework
-- **Language Detection**: Automatic browser language detection
-- **Middleware**: Smart routing for language-specific pages
-- **Type-safe Translations**: Full TypeScript support
-
-### 📦 **DevOps & Deployment**
-
-- **Automated Dependencies**: Renovate/Dependabot integration
-- **GitHub Actions**: CI/CD pipeline ready
-- **Vercel Optimized**: One-click deployment
-- **Docker Ready**: Containerization support
-
-## 🛠️ Tech Stack
-
-### Core
-
-- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
-- **[React 19](https://react.dev/)** - UI library
-- **[TypeScript](https://www.typescriptlang.org/)** - Type safety
-
-### Internationalization
-
-- **[i18next](https://www.i18next.com/)** - Internationalization framework
-- **[react-i18next](https://react.i18next.com/)** - React integration
-- **[i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languageDetector)** - Language detection
-- **[accept-language](https://github.com/tinganho/node-accept-language)** - Server-side language detection
-
-### UI & Styling
-
-- **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[Radix UI](https://www.radix-ui.com/)** - Accessible component primitives
-- **[next-themes](https://github.com/pacocoursey/next-themes)** - Theme management
-- **[Lucide React](https://lucide.dev/)** - Beautiful icons
-- **[Class Variance Authority](https://cva.style/)** - Component variants
-- **[clsx](https://github.com/lukeed/clsx)** - Conditional classes
-- **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Merge Tailwind classes
-
-### Data Fetching
-
-- **[TanStack Query](https://tanstack.com/query)** - Powerful data synchronization
-
-### Development Tools
-
-- **[ESLint](https://eslint.org/)** - Code linting with custom rules
-- **[Prettier](https://prettier.io/)** - Code formatting with import sorting
-- **[Husky](https://typicode.github.io/husky/)** - Git hooks
-- **[Lint-staged](https://github.com/okonet/lint-staged)** - Pre-commit formatting
-- **[Commitlint](https://commitlint.js.org/)** - Conventional commits
-- **[@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)** - Bundle analysis
-
-### Validation & Security
-
-- **[Zod](https://zod.dev/)** - Schema validation
-- **Security Headers** - Comprehensive security configuration
+- **🔐 Wallet Integration**: Connect with Phantom wallet
+- **💱 Token Swapping**: Trade popular Solana tokens (SOL, USDC, USDT, RAY, BONK, JUP)
+- **📊 Portfolio Management**: View your token balances and portfolio value
+- **🎯 Real-time Pricing**: Live price updates and market data
+- **🌍 Multi-language Support**: Available in English and Portuguese
+- **🌙 Dark/Light Mode**: Toggle between themes
+- **📱 Responsive Design**: Works on desktop and mobile devices
+- **⚡ High Performance**: Built with Next.js 15 and optimized for speed
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+
-- Yarn (recommended)
+- Node.js 18.19.0 or later
+- Yarn package manager
+- Phantom wallet extension (for testing)
 
 ### Installation
 
+1. Clone the repository:
+
 ```bash
-# Clone the repository
 git clone <repository-url>
 cd next-solana
+```
 
-# Install dependencies
+2. Install dependencies:
+
+```bash
 yarn install
+```
 
-# Start development server
+3. Start the development server:
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 📁 Project Structure
+## 🧪 Mock Implementation
+
+**Important**: The current implementation uses a mock Solana interface (`lib/solana-mock.ts`) to avoid build issues with `@solana/web3.js` and `rpc-websockets` dependencies in Next.js environments.
+
+### What's Mocked:
+
+- **Connection**: Simulates network connections
+- **PublicKey**: Mock public key implementation
+- **getBalance**: Returns random balance for demonstration
+- **Wallet Operations**: Phantom wallet integration is partially mocked
+
+### For Production Use:
+
+To use with real Solana blockchain:
+
+1. Replace imports in `lib/solana.ts` and `hooks/use-wallet.ts` to use actual `@solana/web3.js`
+2. Install proper Solana dependencies
+3. Configure proper RPC endpoints
+4. Implement real transaction signing
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Blockchain**: Solana (Mock Implementation)
+- **Wallet**: Phantom Wallet integration
+- **UI Components**: Radix UI primitives
+- **Charts**: Recharts
+- **Internationalization**: i18next
+- **Theme**: next-themes
+
+## 🎮 How to Use
+
+1. **Connect Your Wallet**: Click the "Connect Wallet" button and approve the connection in your Phantom wallet
+2. **View Portfolio**: See your current token balances and portfolio value
+3. **Trade Tokens**: Use the swap interface to trade between different tokens
+4. **Monitor Markets**: Check live prices and market data in the sidebar
+5. **Switch Languages**: Toggle between English and Portuguese
+6. **Change Theme**: Switch between light and dark modes
+
+## 🔧 Configuration
+
+The platform supports various configuration options:
+
+- **Slippage Tolerance**: Adjust in the swap settings (0.1%, 0.5%, 1.0%)
+- **Network**: Currently configured for Solana Mainnet (Mock)
+- **Supported Tokens**: See `lib/tokens.ts` for the complete list
+
+## 📦 Project Structure
 
 ```
 next-solana/
-├── app/
-│   ├── [lng]/                 # Language-specific pages
-│   │   ├── layout.tsx         # Layout with theme support
-│   │   └── page.tsx           # Home page
-│   ├── components/            # Shared components
-│   │   ├── ui/                # UI components
-│   │   ├── theme-provider.tsx # Theme context
-│   │   ├── theme-switcher.tsx # Theme toggle
-│   │   └── language-switcher.tsx
-│   └── globals.css            # Global styles
-├── lib/
-│   ├── i18n/                  # i18n configuration
-│   ├── react-query/           # React Query setup
-│   ├── metadata.ts            # SEO utilities
-│   ├── env.ts                 # Environment validation
-│   └── utils.ts               # Utility functions
-├── public/
-│   └── locales/               # Translation files
-│       ├── en/
-│       └── pt/
-├── .husky/                    # Git hooks
-├── .vscode/                   # VSCode configuration
-├── middleware.ts              # Next.js middleware
-├── next.config.ts             # Next.js configuration
-├── commitlint.config.js       # Commitlint configuration
-├── .prettierrc.json           # Prettier configuration
-└── components.json            # shadcn/ui configuration
+├── app/                    # Next.js app router pages
+├── components/             # React components
+│   ├── ui/                # UI primitives
+│   ├── wallet-connect.tsx # Wallet connection component
+│   ├── trading-interface.tsx # Main trading interface
+│   ├── portfolio-display.tsx # Portfolio view
+│   └── token-selector.tsx # Token selection modal
+├── hooks/                 # Custom React hooks
+│   └── use-wallet.ts     # Wallet state management
+├── lib/                   # Utilities and configurations
+│   ├── tokens.ts         # Token definitions
+│   ├── solana.ts         # Solana network config
+│   ├── solana-mock.ts    # Mock Solana implementation
+│   └── i18n/             # Internationalization
+├── public/                # Static assets
+│   ├── images/           # Token logos and images
+│   └── locales/          # Translation files
+└── styles/               # Global styles
 ```
 
-## 🌍 Internationalization
+## 🔐 Security
 
-### Supported Languages
+- **Wallet Security**: Uses Phantom wallet for secure transaction signing
+- **No Private Keys**: Private keys never leave your wallet
+- **Secure Connections**: All RPC connections use HTTPS
+- **Slippage Protection**: Configurable slippage tolerance
 
-- English (`en`)
-- Portuguese (`pt`)
+## 🌐 Internationalization
 
-### Adding New Languages
+The platform supports multiple languages:
 
-1. Add the language code to `lib/i18n/settings.ts`:
+- English (en)
+- Portuguese (pt)
 
-```typescript
-export const languages = ['en', 'pt', 'es']; // Add 'es' for Spanish
-```
+Add new languages by creating translation files in `public/locales/[lang]/common.json`.
 
-2. Create translation files in `public/locales/[lang]/`:
+## 🎨 Customization
 
-```
-public/locales/es/common.json
-```
+### Adding New Tokens
 
-3. Add translations to the new file:
+1. Edit `lib/tokens.ts`
+2. Add token information including mint address, decimals, and logo URI
+3. The token will automatically appear in the selector
 
-```json
-{
-  "welcome": "Bienvenido",
-  "edit": "Editar"
-  // ... more translations
-}
-```
+### Styling
 
-### Using Translations
+The platform uses Tailwind CSS with custom gradients and modern UI patterns. Customize the theme by modifying:
 
-```typescript
-import { useTranslation } from '@/lib';
+- `tailwind.config.ts` - Theme configuration
+- `app/globals.css` - Global styles
+- Component-specific styles in each file
 
-export default function Component() {
-  const { t } = useTranslation('en');
+## 🚧 Development Features
 
-  return <h1>{t('welcome')}</h1>;
-}
-```
-
-## 🎨 Themes
-
-### Theme System
-
-This starter includes a comprehensive theme system with:
-
-- **Light/Dark modes** with system preference detection
-- **Theme Provider** for consistent theming
-- **Theme Switcher** component with smooth transitions
-- **Tailwind CSS** integration with CSS variables
-
-### Using Themes
-
-```typescript
-import { useTheme } from 'next-themes';
-
-export default function Component() {
-  const { theme, setTheme } = useTheme();
-
-  return (
-    <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-      Toggle theme
-    </button>
-  );
-}
-```
-
-## 📦 Scripts
-
-### Development
-
-```bash
-yarn dev              # Start development server with Turbopack
-yarn build            # Build for production
-yarn start            # Start production server
-yarn lint             # Run ESLint
-yarn lint:fix         # Fix linting issues automatically
-yarn format           # Format code with Prettier
-yarn format:check     # Check code formatting
-yarn type-check       # TypeScript type checking
-yarn analyze          # Analyze bundle size
-```
-
-### Dependencies
-
-```bash
-yarn deps:check       # Check for outdated packages
-yarn deps:update      # Update dependencies interactively
-yarn deps:audit       # Security audit
-yarn deps:fix         # Fix vulnerabilities
-```
-
-## 🔒 Security
-
-### Security Headers
-
-This starter includes comprehensive security headers:
-
-- **Content Security Policy (CSP)**
-- **HTTP Strict Transport Security (HSTS)**
-- **X-Frame-Options**
-- **X-Content-Type-Options**
-- **Referrer-Policy**
-- **Permissions-Policy**
-
-### Environment Variables
-
-Type-safe environment variables with Zod validation:
-
-```typescript
-// lib/env.ts
-import { z } from 'zod';
-
-const envSchema = z.object({
-  NODE_ENV: z.enum(['development', 'production', 'test']),
-  NEXT_PUBLIC_APP_URL: z.string().url(),
-});
-
-export const env = envSchema.parse(process.env);
-```
-
-## 🔍 SEO Optimization
-
-### Metadata API
-
-Dynamic metadata generation with:
-
-- **OpenGraph** tags
-- **Twitter Cards**
-- **JSON-LD** structured data
-- **Language alternates**
-- **Canonical URLs**
-
-### Usage
-
-```typescript
-import { generateMetadata } from '@/lib/metadata';
-
-export const metadata = generateMetadata({
-  title: 'Your Page Title',
-  description: 'Your page description',
-  image: '/og-image.jpg',
-});
-```
-
-## 🎯 Git Hooks & Code Quality
-
-### Automated Checks
-
-- **Pre-commit**: Linting and formatting
-- **Commit-msg**: Conventional commits validation
-- **Pre-push**: Type checking and tests
-
-### Conventional Commits
-
-This project uses conventional commits:
-
-- `feat:` New feature
-- `fix:` Bug fix
-- `docs:` Documentation
-- `style:` Code style/formatting
-- `refactor:` Code refactoring
-- `test:` Tests
-- `chore:` Maintenance tasks
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
-
-```bash
-# Deploy to Vercel
-vercel --prod
-```
-
-### Other Platforms
-
-This Next.js app can be deployed to any platform that supports Node.js:
-
-- **Netlify**
-- **Railway**
-- **DigitalOcean**
-- **AWS**
-- **Google Cloud**
+- **Hot Reload**: Instant updates during development
+- **TypeScript**: Full type safety
+- **Linting**: ESLint configuration
+- **Formatting**: Prettier integration
+- **Commit Hooks**: Automated quality checks
 
 ## 📊 Performance
 
-### Bundle Analysis
+- **Lazy Loading**: Components load on demand
+- **Image Optimization**: Next.js Image component
+- **Bundle Analysis**: Use `yarn analyze` to check bundle size
+- **Fast Refresh**: Hot module replacement
 
-Analyze your bundle size:
+## 🔄 Future Enhancements
 
-```bash
-yarn analyze
-```
-
-### Optimization Features
-
-- **Automatic code splitting**
-- **Image optimization** (AVIF/WebP)
-- **Font optimization**
-- **CSS optimization**
-- **JavaScript minification**
-
-## 🧪 Testing (Coming Soon)
-
-### Planned Testing Setup
-
-- **Jest + React Testing Library** for unit tests
-- **Playwright** for E2E tests
-- **Storybook** for component documentation
-- **Coverage reporting**
-
-## 📈 Monitoring (Coming Soon)
-
-### Planned Monitoring Tools
-
-- **Sentry** for error tracking
-- **Web Vitals** tracking
-- **Performance monitoring**
-- **Real User Monitoring (RUM)**
+- Integration with Jupiter aggregator for best swap rates
+- Real Solana web3.js implementation
+- Advanced charting with TradingView
+- Limit orders and advanced order types
+- Liquidity pool management
+- Yield farming interfaces
+- NFT marketplace integration
 
 ## 🤝 Contributing
 
-### How to Contribute
-
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes using conventional commits
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/alanbasilio/next-solana.git
-cd next-solana
-
-# Install dependencies
-yarn install
-
-# Set up git hooks
-yarn prepare
-
-# Start development
-yarn dev
-```
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Links
+## 📞 Support
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [React Documentation](https://react.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [i18next Documentation](https://www.i18next.com/)
-- [Radix UI Documentation](https://www.radix-ui.com/)
-- [next-themes Documentation](https://github.com/pacocoursey/next-themes)
+For support, please:
+
+- Check the documentation
+- Open an issue on GitHub
+- Contact the development team
+
+## 🙏 Acknowledgments
+
+- Solana Labs for the blockchain infrastructure
+- Phantom team for wallet integration
+- Next.js team for the amazing framework
+- The open-source community for all the tools used
 
 ---
 
-**Happy coding! 🎉**
+**⚠️ Disclaimer**: This is a demonstration project with mock Solana implementation. For production use, integrate with real Solana web3.js libraries and always verify transactions when dealing with real funds on mainnet.
