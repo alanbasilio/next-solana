@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deps:check": "yarn outdated",
+    "deps:update": "yarn upgrade-interactive --latest",
+    "deps:audit": "yarn audit",
+    "deps:fix": "yarn audit --fix"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.0",
