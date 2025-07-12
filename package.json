@@ -1,27 +1,85 @@
 {
-  "name": "next-i18n-starter",
+  "name": "next-polyglot",
   "version": "0.1.0",
   "private": true,
+  "description": "A modern, production-ready Next.js starter template with internationalization (i18n) support, built with the latest technologies and best practices.",
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "i18n",
+    "internationalization",
+    "starter",
+    "template",
+    "tailwindcss",
+    "polyglot",
+    "multilingual",
+    "production-ready"
+  ],
+  "author": "Alan Basilio",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky",
+    "analyze": "ANALYZE=true next build",
+    "deps:check": "yarn outdated",
+    "deps:update": "yarn upgrade-interactive --latest",
+    "deps:audit": "yarn audit",
+    "deps:fix": "yarn audit --fix"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.0",
+    "@radix-ui/react-tabs": "^1.1.8",
+    "@tanstack/react-query": "^5.74.4",
+    "accept-language": "^3.0.20",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "i18next": "^24.2.3",
+    "i18next-browser-languagedetector": "^8.0.4",
+    "i18next-resources-to-backend": "^1.2.1",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.4",
+    "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.4"
+    "react-i18next": "^15.4.1",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/eslintrc": "^3",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@next/bundle-analyzer": "^15.3.4",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-next": "15.3.4",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.4",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,mdx,css,html,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
