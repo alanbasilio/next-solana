@@ -1,4 +1,4 @@
-# 🌍 Next.js i18n Starter
+# 🌍 Next Polyglot
 
 A modern, production-ready Next.js starter template with internationalization (i18n) support, built with the latest technologies and best practices.
 
@@ -116,7 +116,7 @@ A modern, production-ready Next.js starter template with internationalization (i
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd next-i18n-starter
+cd next-polyglot
 
 # Install dependencies
 yarn install
@@ -130,7 +130,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## 📁 Project Structure
 
 ```
-next-i18n-starter/
+next-polyglot/
 ├── app/
 │   ├── [lng]/                 # Language-specific pages
 │   │   ├── layout.tsx         # Layout with theme support
@@ -398,6 +398,10 @@ yarn analyze
 ### Development Setup
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/next-polyglot.git
+cd next-polyglot
+
 # Install dependencies
 yarn install
 

@@ -1,7 +1,23 @@
 {
-  "name": "next-i18n-starter",
+  "name": "next-polyglot",
   "version": "0.1.0",
   "private": true,
+  "description": "A modern, production-ready Next.js starter template with internationalization (i18n) support, built with the latest technologies and best practices.",
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "i18n",
+    "internationalization",
+    "starter",
+    "template",
+    "tailwindcss",
+    "polyglot",
+    "multilingual",
+    "production-ready"
+  ],
+  "author": "Alan Basilio",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
