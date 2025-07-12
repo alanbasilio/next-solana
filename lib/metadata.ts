@@ -84,8 +84,8 @@ export function generateMetadata({
       title: siteTitle,
       description,
       images: [image],
-      creator: '@yourusername',
-      site: '@yourusername',
+      creator: '@alanbasilio',
+      site: '@alanbasilio',
     },
     robots: {
       index: true,

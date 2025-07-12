@@ -399,7 +399,7 @@ yarn analyze
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/next-polyglot.git
+git clone https://github.com/alanbasilio/next-polyglot.git
 cd next-polyglot
 
 # Install dependencies
