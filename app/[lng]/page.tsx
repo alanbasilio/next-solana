@@ -3,7 +3,8 @@ import { AppWindow, FileIcon, GlobeIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
-import { Button, LanguageSwitcher } from '@/app/components';
+import { LanguageSwitcher } from '@/components/language-switcher';
+import { Button } from '@/components/ui/button';
 import { useRepoData, useTranslation } from '@/lib';
 
 export default function Home() {

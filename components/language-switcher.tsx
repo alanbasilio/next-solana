@@ -2,7 +2,7 @@
 
 import { useParams, usePathname, useRouter } from 'next/navigation';
 
-import { Tabs, TabsList, TabsTrigger } from '@/app/components';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn, languages } from '@/lib';
 
 export const LanguageSwitcher = () => {
