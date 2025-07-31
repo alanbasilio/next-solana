@@ -1,11 +1,8 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { analyticsService, connection, supabase } from '@/lib';
 import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
-
-import { analyticsService } from '@/lib/analytics';
-import { connection } from '@/lib/solana';
-import { supabase } from '@/lib/supabase';
 
 // Extend Window interface to include Solana
 declare global {

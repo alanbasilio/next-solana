@@ -1,1 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Ensure we're using the correct Node.js version
+if [ -f .nvmrc ]; then
+  nvm use
+fi
+
 npx --no -- commitlint --edit $1 

@@ -1,14 +1,16 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import {
+  ConditionalLiquidityPanel,
+  LanguageSwitcher,
+  PortfolioDisplay,
+  ThemeSwitcher,
+  TradingInterface,
+  WalletConnect,
+} from '@/components';
 import { useTranslation } from '@/lib';
 import { Globe, Sparkles, TrendingUp } from 'lucide-react';
-
-import { LanguageSwitcher } from '@/components/language-switcher';
-import { PortfolioDisplay } from '@/components/portfolio-display';
-import { ThemeSwitcher } from '@/components/theme-switcher';
-import { TradingInterface } from '@/components/trading-interface';
-import { WalletConnect } from '@/components/wallet-connect';
 
 export default function Home() {
   const { lng } = useParams<{ lng: string }>();
@@ -126,6 +128,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Conditional Liquidity Section */}
+        <div className='mt-12'>
+          <ConditionalLiquidityPanel />
         </div>
 
         {/* Footer */}

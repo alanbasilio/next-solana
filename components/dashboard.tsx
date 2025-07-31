@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useWallet } from '@/hooks';
+import { analyticsService, type RevenueMetrics, type UserMetrics } from '@/lib';
 import {
   Activity,
   BarChart3,
@@ -9,10 +11,6 @@ import {
   TrendingUp,
   Users,
 } from 'lucide-react';
-
-import { analyticsService } from '@/lib/analytics';
-import type { RevenueMetrics, UserMetrics } from '@/lib/types';
-import { useWallet } from '@/hooks/use-wallet';
 
 interface DashboardProps {
   lng: string;

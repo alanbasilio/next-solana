@@ -2,11 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { Button, Input } from '@/components';
+import { POPULAR_TOKENS, Token } from '@/lib';
 import { ChevronDown, Search } from 'lucide-react';
-
-import { POPULAR_TOKENS, Token } from '@/lib/tokens';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 interface TokenSelectorProps {
   selectedToken: Token | null;

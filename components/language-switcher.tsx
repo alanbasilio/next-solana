@@ -1,9 +1,8 @@
 'use client';
 
 import { useParams, usePathname, useRouter } from 'next/navigation';
+import { Tabs, TabsList, TabsTrigger } from '@/components';
 import { cn, languages } from '@/lib';
-
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export const LanguageSwitcher = () => {
   const { lng } = useParams<{ lng: string }>();

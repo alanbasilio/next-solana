@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { Button } from '@/components';
+import { useWallet } from '@/hooks';
 import { useTranslation } from '@/lib';
 import { Copy, ExternalLink, Loader2, LogOut, Wallet } from 'lucide-react';
-
-import { useWallet } from '@/hooks/use-wallet';
-import { Button } from '@/components/ui/button';
 
 interface WalletConnectProps {
   lng: string;

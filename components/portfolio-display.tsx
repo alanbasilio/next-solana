@@ -2,11 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useTranslation } from '@/lib';
+import { useWallet } from '@/hooks';
+import { POPULAR_TOKENS, useTranslation, type Token } from '@/lib';
 import { PieChart, TrendingDown, TrendingUp, Wallet } from 'lucide-react';
-
-import { POPULAR_TOKENS, Token } from '@/lib/tokens';
-import { useWallet } from '@/hooks/use-wallet';
 
 interface TokenBalance {
   token: Token;

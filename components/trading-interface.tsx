@@ -1,18 +1,18 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTranslation } from '@/lib';
+import { Button, Card, CardContent, Input, TokenSelector } from '@/components';
+import { useWallet } from '@/hooks';
+import {
+  getTokenBySymbol,
+  jupiterService,
+  NATIVE_SOL,
+  Token,
+  useTranslation,
+  type JupiterQuote,
+} from '@/lib';
 import { ArrowUpDown, Info, Loader2, Settings, TrendingUp } from 'lucide-react';
 import toast from 'react-hot-toast';
-
-import { jupiterService } from '@/lib/jupiter';
-import { getTokenBySymbol, NATIVE_SOL, Token } from '@/lib/tokens';
-import type { JupiterQuote } from '@/lib/types';
-import { useWallet } from '@/hooks/use-wallet';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { TokenSelector } from '@/components/token-selector';
 
 interface TradingInterfaceProps {
   lng: string;
