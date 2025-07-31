@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'api.github.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+      },
     ],
   },
 
@@ -78,17 +82,56 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // Bundle analyzer (conditionally enabled)
-  ...(process.env.ANALYZE === 'true' && {
-    webpack: (config: { plugins: unknown[] }) => {
+  // Webpack configuration for Solana dependencies
+  webpack: (config: any, { webpack }: { isServer: boolean; webpack: any }) => {
+    // Handle Node.js modules in the browser
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false,
+      crypto: 'crypto-browserify',
+      stream: 'stream-browserify',
+      url: false,
+      zlib: false,
+      http: false,
+      https: false,
+      assert: 'assert',
+      os: false,
+      path: false,
+      buffer: 'buffer',
+      events: 'events',
+    };
+
+    // Handle rpc-websockets module resolution
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'rpc-websockets/dist/lib/client':
+        'rpc-websockets/dist/lib/client/websocket.browser.cjs',
+      'rpc-websockets/dist/lib/client/websocket':
+        'rpc-websockets/dist/lib/client/websocket.browser.cjs',
+    };
+
+    // Provide plugins for polyfills
+    config.plugins = config.plugins || [];
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        Buffer: ['buffer', 'Buffer'],
+        process: 'process/browser',
+      })
+    );
+
+    // Bundle analyzer (conditionally enabled)
+    if (process.env.ANALYZE === 'true') {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       const BundleAnalyzerPlugin = require('@next/bundle-analyzer')({
         enabled: true,
       });
       config.plugins.push(new BundleAnalyzerPlugin());
-      return config;
-    },
-  }),
+    }
+
+    return config;
+  },
 };
 
 export default nextConfig;

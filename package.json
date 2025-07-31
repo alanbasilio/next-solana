@@ -1,5 +1,5 @@
 {
-  "name": "next-polyglot",
+  "name": "next-solana",
   "version": "0.1.0",
   "private": true,
   "description": "A modern, production-ready Next.js starter template with internationalization (i18n) support, built with the latest technologies and best practices.",
@@ -14,7 +14,10 @@
     "tailwindcss",
     "polyglot",
     "multilingual",
-    "production-ready"
+    "production-ready",
+    "solana",
+    "trading",
+    "defi"
   ],
   "author": "Alan Basilio",
   "license": "MIT",
@@ -32,24 +35,51 @@
     "deps:check": "yarn outdated",
     "deps:update": "yarn upgrade-interactive --latest",
     "deps:audit": "yarn audit",
-    "deps:fix": "yarn audit --fix"
+    "deps:fix": "yarn audit --fix",
+    "db:generate": "supabase gen types typescript --project-id YOUR_PROJECT_ID > lib/database.types.ts",
+    "db:push": "supabase db push",
+    "db:reset": "supabase db reset"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-slot": "^1.2.3",
-    "@radix-ui/react-tabs": "^1.1.12",
-    "@tanstack/react-query": "^5.83.0",
+    "@radix-ui/react-tabs": "^1.1.8",
+    "@radix-ui/react-tooltip": "^1.2.7",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react-ui": "^0.9.34",
+    "@solana/wallet-adapter-wallets": "^0.19.23",
+    "@solana/web3.js": "1.98.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "@tanstack/react-query": "^5.74.4",
     "accept-language": "^3.0.20",
+    "assert": "^2.1.0",
+    "axios": "^1.6.0",
+    "bs58": "^6.0.0",
+    "buffer": "^6.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "crypto-browserify": "^3.12.1",
+    "date-fns": "^3.0.0",
+    "events": "^3.3.0",
+    "framer-motion": "^10.16.0",
     "i18next": "^24.2.3",
-    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-browser-languagedetector": "^8.0.4",
     "i18next-resources-to-backend": "^1.2.1",
-    "lucide-react": "^0.532.0",
-    "next": "15.4.4",
+    "lucide-react": "^0.525.0",
+    "mixpanel-browser": "^2.49.0",
+    "next": "15.3.4",
     "next-themes": "^0.4.6",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-i18next": "^15.6.1",
+    "posthog-js": "^1.96.0",
+    "process": "^0.11.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.4.1",
+    "react-i18next": "^15.4.1",
+    "recharts": "^3.1.0",
+    "rpc-websockets": "7.11.2",
+    "stream-browserify": "^3.0.0",
     "tailwind-merge": "^3.3.1",
     "zod": "^3.23.8"
   },
@@ -58,28 +88,32 @@
     "@commitlint/config-conventional": "^19.5.0",
     "@eslint/eslintrc": "^3",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
-    "@next/bundle-analyzer": "^15.4.4",
+    "@next/bundle-analyzer": "^15.3.4",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.4.4",
-    "eslint-config-prettier": "^9.1.2",
+    "eslint-config-next": "15.3.4",
+    "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "tailwindcss": "^4",
-    "tw-animate-css": "^1.3.6",
-    "typescript": "^5"
+    "tw-animate-css": "^1.3.4",
+    "typescript": "^5",
+    "supabase": "^1.145.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+      "next lint --fix --dir .",
       "prettier --write"
     ],
     "*.{json,md,mdx,css,html,yml,yaml}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

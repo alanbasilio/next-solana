@@ -1,8 +1,8 @@
-# Contributing to Next Polyglot
+# Contributing to Next Solana
 
 First off, thanks for taking the time to contribute! ❤️
 
-The following is a set of guidelines for contributing to Next Polyglot. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to Next Solana. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 ## Code of Conduct
 
@@ -38,8 +38,8 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 ```bash
 # Clone your fork
-git clone https://github.com/alanbasilio/next-polyglot.git
-cd next-polyglot
+git clone https://github.com/alanbasilio/next-solana.git
+cd next-solana
 
 # Install dependencies
 yarn install
@@ -141,7 +141,7 @@ Currently, the project is preparing to implement testing. Once available:
 Understanding the project structure will help you contribute effectively:
 
 ```
-next-polyglot/
+next-solana/
 ├── app/                    # Next.js app directory
 │   ├── [lng]/             # Language-specific routes
 │   └── components/        # React components
@@ -176,4 +176,4 @@ If you have questions about contributing, please:
 
 Contributors will be recognized in our README.md file and release notes.
 
-Thank you for contributing to Next Polyglot! 🎉
+Thank you for contributing to Next Solana! 🎉
