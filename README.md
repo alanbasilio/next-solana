@@ -1,6 +1,6 @@
 # Modern Solana DEX
 
-A cutting-edge decentralized exchange built on Solana with modern DeFi features.
+A DEX demo built on Solana with modern DeFi features.
 
 ## Features
 
