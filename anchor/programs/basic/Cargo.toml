@@ -1,12 +1,12 @@
 [package]
-name = "basic"
+name = "solana-dex"
 version = "0.1.0"
-description = "Created with Anchor"
+description = "Modern DEX on Solana with concentrated liquidity and advanced trading features"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "basic"
+name = "solana_dex"
 
 [features]
 default = []
@@ -22,4 +22,5 @@ anchor-debug = []
 
 [dependencies]
 anchor-lang = "0.31.1"
+anchor-spl = "0.31.1"
 

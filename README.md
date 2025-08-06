@@ -1,26 +1,157 @@
-# template-next-tailwind-basic
+# Modern Solana DEX
 
-This is a Next.js app containing:
+A cutting-edge decentralized exchange built on Solana with modern DeFi features.
 
-- Tailwind CSS setup for styling
-- Useful wallet UI elements setup using [Gill](https://gill.site/)
-- A basic Greeter Solana program written in Anchor
-- UI components for interacting with the Greeter program
+## Features
+
+- **Concentrated Liquidity** - Capital efficient AMM with customizable price ranges
+- **Jupiter Integration** - Smart routing and aggregation across all Solana DEXs  
+- **Advanced Trading** - Limit orders, DCA strategies, and professional trading tools
+- **Modern UI/UX** - Beautiful, responsive interface built with Next.js and Tailwind CSS
+- **Real-time Analytics** - Comprehensive data and insights powered by Supabase
+- **Mobile Optimized** - Full functionality on all devices
+
+## Technology Stack
+
+### Frontend
+- **Next.js 15** - React framework with App Router
+- **Tailwind CSS** - Utility-first CSS framework
+- **Radix UI** - Headless UI components
+- **Framer Motion** - Smooth animations
+- **TanStack Query** - Data fetching and caching
+
+### Backend  
+- **Anchor** - Solana program development framework
+- **Rust** - Systems programming language for on-chain programs
+- **Supabase** - PostgreSQL database with real-time subscriptions
+- **Jupiter API** - Liquidity aggregation and smart routing
+
+### Blockchain
+- **Solana** - High-performance blockchain
+- **SPL Tokens** - Solana token standard
+- **Wallet Integration** - Phantom, Solflare, and more
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js 18+ and Yarn
+- Rust and Solana CLI
+- Anchor CLI
+- Supabase account (for database)
+
 ### Installation
 
-#### Download the template
+#### Quick Start (Recommended)
 
 ```shell
-pnpm create solana-dapp@latest -t gh:solana-foundation/templates/templates/template-next-tailwind-basic
+# Clone and install
+git clone <repository-url>
+cd solana-dex-modern
+npm install
+
+# Interactive environment setup
+npm run setup-env
+
+# Complete development setup
+npm run setup-dev
+
+# Start development server
+npm run dev
 ```
 
-#### Install Dependencies
+#### Manual Setup
+
+##### 1. Install Dependencies
 
 ```shell
-pnpm install
+npm install
+```
+
+##### 2. Environment Configuration
+
+Choose your setup method:
+
+**Option A: Interactive Setup**
+```shell
+npm run setup-env
+```
+
+**Option B: Manual Configuration**
+
+Copy `.env.local.example` to `.env.local` and configure:
+
+```env
+# Development (Mock Data)
+NODE_ENV=development
+NEXT_PUBLIC_USE_MOCK_DATA=true
+NEXT_PUBLIC_SOLANA_NETWORK=devnet
+NEXT_PUBLIC_RPC_ENDPOINT=https://api.devnet.solana.com
+
+# Production (Real Services)
+# NODE_ENV=production
+# NEXT_PUBLIC_USE_MOCK_DATA=false
+# NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+# NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+# NEXT_PUBLIC_SOLANA_NETWORK=mainnet-beta
+# NEXT_PUBLIC_RPC_ENDPOINT=https://your-mainnet-rpc.com
+```
+
+##### 3. Smart Contract Setup
+
+```shell
+# Setup Anchor and generate program
+npm run setup
+
+# Build the program
+npm run anchor-build
+
+# For production deployment
+npm run setup-prod
+```
+
+### Environment Modes
+
+The DEX supports multiple operation modes:
+
+- **🔬 Development**: Mock data, no external dependencies
+- **🧪 Staging**: Real services on devnet
+- **🏭 Production**: Real services on mainnet
+
+Configure via `NEXT_PUBLIC_USE_MOCK_DATA` environment variable.
+
+## 📋 Available Commands
+
+### Environment Setup
+```shell
+npm run setup-env        # Interactive environment configuration
+npm run setup-dev        # Complete development setup
+npm run setup-prod       # Production build and deployment
+```
+
+### Development
+```shell
+npm run dev              # Start development server
+npm run build            # Build for production
+npm run start            # Start production server
+npm run type-check       # TypeScript type checking
+```
+
+### Solana/Anchor
+```shell
+npm run anchor           # Run anchor commands
+npm run anchor-build     # Build Anchor program
+npm run anchor-test      # Test Anchor program
+npm run anchor-deploy    # Deploy to configured network
+npm run anchor-localnet  # Start local validator
+```
+
+### Code Quality
+```shell
+npm run lint             # ESLint check
+npm run format           # Format code with Prettier
+npm run format:check     # Check code formatting
+npm run ci               # Full CI pipeline
 ```
 
 ## Apps

@@ -1,5 +1,5 @@
-import { DashboardFeature } from '@/components/dashboard/dashboard-feature'
+import { DexMain } from '@/components/dex/dex-main'
 
 export default function Home() {
-  return <DashboardFeature />
+  return <DexMain />
 }
